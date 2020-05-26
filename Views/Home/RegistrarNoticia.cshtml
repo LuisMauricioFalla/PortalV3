@@ -1,0 +1,37 @@
+@model Noticia
+<h1>Formulario de Registro de Noticas</h1>
+
+<!-- es el equivalente de escribir action ="~/home/registrarnotica"
+-->
+<form asp-action="registrarnoticia" method="post">
+
+
+    <!-- nos muestras los errores de los campos que fueron llenados incorrectamente, 
+    la primera vez no hay ningun error, asi que sale vacia
+    -->
+    <div asp-validation-summary="All" style="color : red;"></div>
+
+
+    <div>
+        <div>
+            titulo: <br>
+        <!-- se registra de forma dinamica los atributos
+        -->
+            <input asp-for="Titulo">
+        </div>
+
+        <div>
+            Descripcion : <br>
+            <textarea asp-for="Descripcion"></textarea>
+        </div>
+
+        <div>
+            Fuente : <br>
+            <input asp-for="Fuente">
+        </div>
+    </div>
+
+    <button>Enviar</button>
+
+
+</form>

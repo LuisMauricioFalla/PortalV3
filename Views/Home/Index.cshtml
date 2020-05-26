@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var noticias = (List<Noticia>)ViewBag.noticias;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Listado de Noticias</h1>
+    
+    @foreach (var n in noticias)
+    {
+        <h2>@n.Titulo</h2>
+        <p>@n.Descripcion</p>
+    }
+</div>
+
+<!-- 
+//PASO 7 
+//es el script que sera utilizado para crear la base de datos
+//cada vez que cambie el contexto, producto de cambiar el modelo
+
+//dotnet ef migrations add Inicial
+//Inicial cambia por una palabra por el un resumen del cambio hecho
+
+//PASO 8 
+// ejecutamos el script generado en el paso 7
+
+//dotnet ef database update 
+
+//PASO 9
+//en XAMP levantamos APACHE
+//en el browser escribimos "localhost"
+//en la nueva ventana, el ultimo tab dice phpMyAdmin, entrando alli
+//a la mano izquierda de phpMyAdmin, buscamos nuestra base de datos "portal"/"noticias"
+//en las opciones utilizamos "Insertar" para adicionar una noticia, nos pedira titulo y descripcion para continuar
+//
+
+//Ejemplo adicionar Fuente
+//dotnet ef migrations add AddFuente
+//dotnet ef database update 
+
+//Ejemplo Agregar Categorias a Noticias, las categorias son complejas y son una clase nueva
+//creamos en models Categoria.cs con sus atributos y que puedan apuntar a una lista de noticias
+//modificamos la clase Noticias.cs con un nuevo atributo Categoria de tipo Categoria
+//en Data/PortalDbContext.cs agregamos un constructor para categoria 
+//public DbSet<Noticia> Categorias { get; set; }
+//dotnet ef migrations add AddCategoria
+//dotnet ef database update 
+
+-->
